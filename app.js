@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, "./assets"))); //setting up assets d
 //home route handler to get project list
 app.get("/", async (req, res) => {
   try {
-    let projectList = await Project.find({}).sort({ createdAt: 1 }); //fetching Project List
+    let projectList = await Project.find({}).sort({ createdAt: -1 }); //fetching Project List
     return res.render("home", { projectList }); //sending Project List in locals
   } catch (e) {
     return console.log(e);
